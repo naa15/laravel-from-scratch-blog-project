@@ -18,7 +18,7 @@
     <div class="tw-flex tw-justify-center mt-6 lg:space-x-4 space-y-4 lg:space-y-0">
         <!-- Category -->
         <span class="relative bg-gray-100 rounded-xl flex lg:inline-flex items-center">
-            <select class="appearance-none bg-transparent font-semibold pl-3 pr-9 py-2 text-sm flex-1">
+            <select class="appearance-none bg-transparent font-semibold pl-3 pr-9 py-2 text-sm flex-1 outline-none">
                 <option value="category" disabled selected>Category</option>
                 <option value="personal">Personal</option>
                 <option value="business">Business</option>
@@ -32,7 +32,7 @@
         </span>
         <!-- Other Filters -->
         <span class="relative bg-gray-100 rounded-xl flex lg:inline-flex items-center">
-            <select class="appearance-none bg-transparent font-semibold pl-3 pr-9 py-2 text-sm flex-1">
+            <select class="appearance-none bg-transparent font-semibold pl-3 pr-9 py-2 text-sm flex-1 outline-none">
                 <option value="otherFilters" disabled selected>Other Filters</option>
                 <option value="foo">Foo</option>
                 <option value="bar">Bar</option>
