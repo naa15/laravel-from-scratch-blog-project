@@ -12,7 +12,7 @@
         <nav class="flex justify-between items-center">
             <div> 
                 <a href="/">
-                    <img src="images/logo.svg" alt="Laracasts Logo" width="165" height="16">
+                    <img src="/images/logo.svg" alt="Laracasts Logo" width="165" height="16">
                 </a>
             </div>
 
@@ -28,7 +28,7 @@
 
         <footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
             <div class="relative mx-auto" style="width: 500px;">
-                <img src="images/lary-newsletter-icon.png" width="145px" alt="Larry Laracore" class="mx-auto">
+                <img src="/images/lary-newsletter-icon.png" width="145px" alt="Larry Laracore" class="mx-auto">
                 <h5 class="text-3xl absolute bottom-0 mx-auto text-center">Stay in touch with the latest posts</h5>
             </div>
             <p class="text-sm mt-3">Promise to keep the inbox clean. No bugs.</p>
@@ -38,7 +38,7 @@
                     <form method="POST" action="#" class="flex items-center text-sm">
                         <div class="px-5 py-3 inline-flex items-center">
                             <label for="email">
-                                <img src="images/mailbox-icon.svg" alt="Mailbox Icon">
+                                <img src="/images/mailbox-icon.svg" alt="Mailbox Icon">
                             </label>
                             <input type="text" name="" id="email" placeholder="Your email adress" class="bg-transparent pl-4 outline-none ">
                         </div>

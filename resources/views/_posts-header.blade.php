@@ -6,7 +6,7 @@
 
         <h2 class="inline-flex mt-2">
             By Larry Laracore
-            <img src="images/lary-head.svg" alt="Head of Larry the Mascot">
+            <img src="/images/lary-head.svg" alt="Head of Larry the Mascot">
         </h2>
 
         <p class="text-sm mt-14">
