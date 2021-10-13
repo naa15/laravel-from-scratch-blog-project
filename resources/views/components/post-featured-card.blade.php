@@ -28,7 +28,7 @@
                         </time>
                     </span>
                 </div>
-            </header>category
+            </header>
 
             <div class="mt-2 text-sm">
                 <p>
