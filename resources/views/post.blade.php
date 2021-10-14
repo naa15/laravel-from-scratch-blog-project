@@ -45,10 +45,8 @@
                     </div>
 
                     <h1 class="font-bold text-4xl mb-10"> {{ $post->title }}</h1>
-                    <div class="space-y-6 text-lg">
-                        <p>
-                            {{ $post->body }}
-                        </p>
+                    <div class="space-y-6 text-lg space-y-4">
+                        {!! $post->body !!}
                         {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                             laboris nisi ut aliquip ex ea commodo consequat.</p>

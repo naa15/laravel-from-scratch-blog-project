@@ -30,10 +30,9 @@
                 </div>
             </header>
 
-            <div class="mt-2 text-sm">
-                <p>
-                    {{ $post->body }}
-                </p>
+            <div class="mt-2 text-sm space-y-4">
+                
+                {!! $post->body !!}
             </div>
 
             <footer class="flex justify-between items-center mt-8">
