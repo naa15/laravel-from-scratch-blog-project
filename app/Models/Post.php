@@ -34,7 +34,7 @@ class Post extends Model
         //     $query
         //         ->whereHas('category', function($query, $category){
         //             return $query->where('slug', $category);
-        //         });
+    //         });
         // });
     }
 
