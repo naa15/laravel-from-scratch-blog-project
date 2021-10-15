@@ -22,9 +22,8 @@
                 </x-dropdown-item>
 
                 @foreach ($categories as $category)
-                    <x-dropdown-item href="/categories/{{ $category->slug }}"
-                        :active='request()->is("categories/{$category->slug}")'
-                    >
+                    <x-dropdown-item href="/?category={{ $category->slug }}"
+                        :active='request()->is("categories/{$category->slug}")'>
                         {{ ucwords($category->name) }}
                     </x-dropdown-item>
                 @endforeach
@@ -49,7 +48,7 @@
         <!-- Search -->
         <span class="bg-gray-100 flex lg:inline-flex items-center px-3 py-2 relative rounded-xl">
             <form method="GET" action="#">
-                <input type="text" name="search" placeholder="Find something"
+                <input type="text" name="search" placeholder="Find something" value="{{request('search')}}"
                     class="px-1 outline-none bg-transparent placeholder-black text-sm font-semibold">
             </form>
         </span>
