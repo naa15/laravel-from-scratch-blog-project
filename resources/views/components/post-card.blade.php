@@ -1,6 +1,7 @@
 @props(['post'])
 
-<article {{ $attributes->merge(['class'=> 'transition-colors duration-300 hover:bg-gray-200 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']) }}>
+<article
+    {{ $attributes->merge(['class' => 'transition-colors duration-300 hover:bg-gray-200 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']) }}>
     <div class="py-6 px-5 cursor-pointer">
         <div>
             <img src="/images/illustration-1.png" alt="Blog Post Illustration" class="rounded-xl">
@@ -13,14 +14,14 @@
 
                 <div class="mt-4">
                     <h1 class="text-3xl">
-                        <a href="/posts/{{$post->slug}}">
-                            {{$post->title}}
+                        <a href="/posts/{{ $post->slug }}">
+                            {{ $post->title }}
                         </a>
                     </h1>
                     <span class="mt-2 block text-gray-300 text-xs">
                         Published
                         <time>
-                            {{$post->created_at->diffForHumans()}}
+                            {{ $post->created_at->diffForHumans() }}
                         </time>
                     </span>
                 </div>
@@ -32,12 +33,14 @@
                 <div class="flex text-sm items-center">
                     <img src="/images/lary-avatar.svg" alt="Larry avatar">
                     <div class="ml-3">
-                        <h5 class="font-bold">{{ $post->author->name }}</h5>
-                        <h6>Mascot at @Laracasts</h6>
+                        <h5 class="font-bold">
+                            <a href="/?author={{ $post->author->username }}">{{ $post->author->name }}</a>
+                        </h5>
                     </div>
                 </div>
                 <div>
-                    <a class="hover:bg-gray-400 bg-gray-300 border font-semibold px-5 py-2 rounded-full text-xs" href="/posts/{{$post->slug}}">Read More</a>
+                    <a class="hover:bg-gray-400 bg-gray-300 border font-semibold px-5 py-2 rounded-full text-xs"
+                        href="/posts/{{ $post->slug }}">Read More</a>
                 </div>
             </footer>
         </div>

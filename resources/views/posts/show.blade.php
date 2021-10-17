@@ -19,7 +19,9 @@
                     <div class="flex text-sm items-center justify-center mt-4">
                         <img src="/images/lary-avatar.svg" alt="Larry avatar">
                         <div class="ml-3 text-left">
-                            <h5 class="font-bold"> {{ $post->author->name }} </h5>
+                            <h5 class="font-bold">
+                                <a href="/?author={{ $post->author->username }}">{{ $post->author->name }}</a>
+                            </h5>                        
                         </div>
                     </div>
                 </div>
