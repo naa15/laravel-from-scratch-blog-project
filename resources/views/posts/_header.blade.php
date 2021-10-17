@@ -28,7 +28,10 @@
         </span> --}}
         <!-- Search -->
         <span class="bg-gray-100 flex lg:inline-flex items-center px-3 py-2 relative rounded-xl">
-            <form method="GET" action="#">
+            <form method="GET" action="/">
+                @if (request('category'))
+                    <input type="hidden" name="category" value="{{ request('category') }}">
+                @endif
                 <input type="text" name="search" placeholder="Find something" value="{{request('search')}}"
                     class="px-1 outline-none bg-transparent placeholder-black text-sm font-semibold">
             </form>
