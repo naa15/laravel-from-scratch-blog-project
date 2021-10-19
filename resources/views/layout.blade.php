@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Laravel From Scratch Blog</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -11,7 +12,7 @@
 <body style="font-family: Open Sans, sans-serif">
     <section class="px-6 py-8">
         <nav class="flex justify-between items-center">
-            <div> 
+            <div>
                 <a href="/">
                     <img src="/images/logo.svg" alt="Laracasts Logo" width="165" height="16">
                 </a>
@@ -20,9 +21,10 @@
             <div>
                 <a class="text-xs font-bold uppercase" href="/">Home Page</a>
 
-                <a class="bg-blue-500 ml-3 hover:bg-blue-700 rounded-full font-semibold text-white uppercase px-5 py-3" href="#">Subscribe for Updates</a>
+                <a class="bg-blue-500 ml-3 hover:bg-blue-700 rounded-full font-semibold text-white uppercase px-5 py-3"
+                    href="#">Subscribe for Updates</a>
             </div>
-           
+
         </nav>
 
         @yield('content')
@@ -41,16 +43,30 @@
                             <label for="email">
                                 <img src="/images/mailbox-icon.svg" alt="Mailbox Icon">
                             </label>
-                            <input type="text" name="" id="email" placeholder="Your email adress" class="bg-transparent pl-4 outline-none ">
+                            <input type="text" name="" id="email" placeholder="Your email adress"
+                                class="bg-transparent pl-4 outline-none ">
                         </div>
 
-                        <button type="submit" class="bg-blue-500 ml-3 hover:bg-blue-700 rounded-full font-semibold text-white uppercase px-8 py-3" >Subscribe</button>
+                        <button type="submit"
+                            class="bg-blue-500 ml-3 hover:bg-blue-700 rounded-full font-semibold text-white uppercase px-8 py-3">Subscribe</button>
                     </form>
                 </div>
             </div>
         </footer>
     </section>
 
+    @if (session()->has('success'))
+        <div x-data = "{ show: true}"
+            x-init = "setTimeout(() => show = false, 4000)"    
+            x-show = "show"
+            class="fixed bg-blue-500 text-white text-sm py-2 px-4 rounded-xl bottom-3 right-3"
+        >
+            <p>
+                {{ session('success') }}
+            </p>
+        </div>
+    @endif
 
 </body>
+
 </html>
