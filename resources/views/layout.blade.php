@@ -18,10 +18,21 @@
                 </a>
             </div>
 
-            <div>
-                <a class="text-xs font-bold uppercase" href="/">Home Page</a>
+            <div class="flex items-center mt-8 md:mt-0">
+                @auth
+                    <span class="text-xs font-bold uppercase">Welcome back, {{ auth()->user()->name }}!</span>
 
-                <a class="bg-blue-500 ml-3 hover:bg-blue-700 rounded-full font-semibold text-white uppercase px-5 py-3"
+                    <form method="POST" action="/logout">
+                        @csrf
+
+                        <button type="submit" class="text-xs text-blue-500 font-semibold px-6">Log Out</button>
+                    </form>
+                @else
+                    <a class="text-xs font-bold px-2 uppercase" href="/register">Register</a>
+                    <a class="text-xs font-bold px-2 uppercase" href="/login">Log In</a>
+                @endauth
+
+                <a class="bg-blue-500 hover:bg-blue-700 rounded-full font-semibold text-white uppercase px-5 py-3"
                     href="#">Subscribe for Updates</a>
             </div>
 
@@ -54,19 +65,7 @@
             </div>
         </footer>
     </section>
-
-    @if (session()->has('success'))
-        <div x-data = "{ show: true}"
-            x-init = "setTimeout(() => show = false, 4000)"    
-            x-show = "show"
-            class="fixed bg-blue-500 text-white text-sm py-2 px-4 rounded-xl bottom-3 right-3"
-        >
-            <p>
-                {{ session('success') }}
-            </p>
-        </div>
-    @endif
-
+    <x-flash />
 </body>
 
 </html>
