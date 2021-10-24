@@ -7,6 +7,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+
 </head>
 
 <body style="font-family: Open Sans, sans-serif">
@@ -33,14 +41,15 @@
                 @endauth
 
                 <a class="bg-blue-500 hover:bg-blue-700 rounded-full font-semibold text-white uppercase px-5 py-3"
-                    href="#">Subscribe for Updates</a>
+                    href="#newsletter">Subscribe for Updates</a>
             </div>
 
         </nav>
 
         @yield('content')
 
-        <footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
+        <footer id="newsletter"
+            class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
             <div class="relative mx-auto" style="width: 500px;">
                 <img src="/images/lary-newsletter-icon.png" width="145px" alt="Larry Laracore" class="mx-auto">
                 <h5 class="text-3xl absolute bottom-0 mx-auto text-center">Stay in touch with the latest posts</h5>
@@ -49,13 +58,20 @@
 
             <div class="mt-10">
                 <div class="bg-gray-200 inline-block mx-auto relative rounded-full">
-                    <form method="POST" action="#" class="flex items-center text-sm">
+                    <form method="POST" action="/newsletter" class="flex items-center text-sm">
+                        @csrf
+
                         <div class="px-5 py-3 inline-flex items-center">
                             <label for="email">
                                 <img src="/images/mailbox-icon.svg" alt="Mailbox Icon">
                             </label>
-                            <input type="text" name="" id="email" placeholder="Your email adress"
-                                class="bg-transparent pl-4 outline-none ">
+                            <div>
+                                <input type="text" name="email" id="email" placeholder="Your email adress"
+                                    class="bg-transparent pl-4 outline-none ">
+                                @error('email')
+                                    <span class="text-xs text-red-500">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
                         <button type="submit"
@@ -65,7 +81,7 @@
             </div>
         </footer>
     </section>
-    
+
     <x-flash />
 </body>
 
