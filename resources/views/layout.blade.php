@@ -40,7 +40,7 @@
                     <a class="text-xs font-bold px-2 uppercase" href="/login">Log In</a>
                 @endauth
 
-                <a class="bg-blue-500 hover:bg-blue-700 rounded-full font-semibold text-white uppercase px-5 py-3"
+                <a class="bg-blue-500 hover:bg-blue-700 rounded-full font-semibold text-white ml-3 uppercase px-5 py-3"
                     href="#newsletter">Subscribe for Updates</a>
             </div>
 
