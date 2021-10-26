@@ -32,7 +32,7 @@
 
             <div class="mt-2 text-sm space-y-4">
                 
-                {!! $post->body !!}
+                {!! $post->excerpt !!}
             </div>
 
             <footer class="flex justify-between items-center mt-8">
