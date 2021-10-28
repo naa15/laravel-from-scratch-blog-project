@@ -5,7 +5,7 @@
         <div class="lg:flex-1 mr-8">
             <a href="/posts/{{$post->slug}}">
                 {{-- TO DO --}}
-                <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="Blog Post Illustration" class="rounded-xl">
+                <img src="{{ $post->thumbnail? asset('storage/' . $post->thumbnail) : "/images/illustration-1.png" }}" alt="Blog Post Illustration" class="rounded-xl">
             </a>
         </div>
 

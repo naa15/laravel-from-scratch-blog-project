@@ -7,8 +7,8 @@
             <x-form.input name="title" />
             <x-form.input name="slug" />
             <x-form.input name="thumbnail" type="file" />
-            <x-form.textarea name="excerpt" />
-            <x-form.textarea name="body" />
+            <x-form.textarea name="excerpt">{{ old('excerpt') }}</x-form.textarea>
+            <x-form.textarea name="body">{{ old('excerpt') }}</x-form.textarea>
 
             <x-form.field>
                 <x-form.label name="category" />
