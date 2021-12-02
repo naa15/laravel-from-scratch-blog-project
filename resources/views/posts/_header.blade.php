@@ -32,7 +32,7 @@
                 @if (request('category'))
                     <input type="hidden" name="category" value="{{ request('category') }}">
                 @endif
-                <input type="text" name="search" placeholder="Find something" value="{{request('search')}}"
+                <input type="text" name="search" placeholder="Find something" value="{{ request('search') }}"
                     class="px-1 outline-none bg-transparent placeholder-black text-sm font-semibold">
             </form>
         </span>

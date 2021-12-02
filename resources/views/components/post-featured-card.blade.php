@@ -1,11 +1,13 @@
 @props(['post'])
 
-<article class="transition-colors duration-300 hover:bg-gray-200 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
+<article
+    class="transition-colors duration-300 hover:bg-gray-200 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
     <div class="py-6 px-5 lg:flex cursor-pointer">
         <div class="lg:flex-1 mr-8">
-            <a href="/posts/{{$post->slug}}">
+            <a href="/posts/{{ $post->slug }}">
                 {{-- TO DO --}}
-                <img src="{{ $post->thumbnail? asset('storage/' . $post->thumbnail) : "/images/illustration-1.png" }}" alt="Blog Post Illustration" class="rounded-xl">
+                <img src="{{ $post->thumbnail ? asset('storage/' . $post->thumbnail) : '/images/illustration-1.png' }}"
+                    alt="Blog Post Illustration" class="rounded-xl">
             </a>
         </div>
 
@@ -14,15 +16,15 @@
                 <div>
                     <x-category-button :category="$post->category" />
                 </div>
-        
+
                 <div class="mt-4">
                     <h1 class="text-3xl">
-                        <a href="/posts/{{$post->slug}}">
+                        <a href="/posts/{{ $post->slug }}">
                             {{ $post->title }}
                         </a>
-                    </h1>  
+                    </h1>
                     <span class="mt-2 block text-gray-400 text-xs">
-                        Published 
+                        Published
                         <time>
                             {{ $post->created_at->diffForHumans() }}
                         </time>
@@ -31,7 +33,7 @@
             </header>
 
             <div class="mt-2 text-sm space-y-4">
-                
+
                 {!! $post->excerpt !!}
             </div>
 
@@ -46,7 +48,8 @@
                 </div>
 
                 <div>
-                    <a class="hover:bg-gray-400 bg-gray-300 border font-semibold px-5 py-2 rounded-full text-xs" href="/posts/{{$post->slug}}">Read More</a>
+                    <a class="hover:bg-gray-400 bg-gray-300 border font-semibold px-5 py-2 rounded-full text-xs"
+                        href="/posts/{{ $post->slug }}">Read More</a>
                 </div>
             </footer>
         </div>

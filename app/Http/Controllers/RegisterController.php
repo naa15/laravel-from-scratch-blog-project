@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Facades;
@@ -19,7 +20,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'username' => 'required|min:3|max:255|unique:users,username',
             /*
-            * other way of doing the same thing: 
+            * other way of doing the same thing:
             * 'username' => ['required', 'min:3', 'max:255', Rule::unique('users', 'username')],
             * 'email' => ['required', 'email', 'max:255'],
             */

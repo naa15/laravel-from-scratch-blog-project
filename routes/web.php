@@ -7,11 +7,6 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\NewsletterController;
-use App\Models\Post;
-use App\Services\Newsletter;
-use Illuminate\Validation\ValidationException;
-use GrahamCampbell\ResultType\Success;
-
 
 /*
 | These routes are loaded by the RouteServiceProvider within a group which
@@ -36,8 +31,7 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 
-//Admin
-Route::middleware('can:admin')->group(function() {
+Route::middleware('can:admin')->group(function () {
     // another way:
     // Route::resource('admin/posts', AdminPostController::class)->except('show');
     Route::post('admin/posts', [AdminPostController::class, 'store']);

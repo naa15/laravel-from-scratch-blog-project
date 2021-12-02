@@ -20,8 +20,7 @@ class SessionsController extends Controller
             'password' => 'required'
         ]);
 
-        if (Auth::attempt($attributes)) 
-        {
+        if (Auth::attempt($attributes)) {
             return redirect('/')->with('success', "Welcome Back");
         }
 
@@ -29,7 +28,7 @@ class SessionsController extends Controller
             'email' => 'Your provided credentials could not be varified.'
         ]);
 
-        /* 
+        /*
         * other way to do the same:
         * return back()
         *    ->withInput()
