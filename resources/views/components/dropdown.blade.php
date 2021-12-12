@@ -2,7 +2,7 @@
 
 <div x-data="{ show: false }" @click.away="show = false">
     {{-- Trigger --}}
-    <div @click="show = ! show">
+    <div x-cloak @click="show = ! show">
         {{ $trigger }}
     </div>
 

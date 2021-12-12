@@ -6,8 +6,7 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
-
+    <script src="{{ mix('js/app.js') }}" defer></script>
     <style>
         html {
             scroll-behavior: smooth;
@@ -44,7 +43,7 @@
                         </x-dropdown-item>
                         @endadmin
 
-                        <x-dropdown-item href="#" x-data="{}"
+                        <x-dropdown-item href="#" x-data="{}" x-cloak
                             @click.prevent="document.querySelector('#logout-form').submit()">
                             Log Out
                         </x-dropdown-item>

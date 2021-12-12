@@ -15,7 +15,7 @@ class MailchimpNewsletter implements Newsletter
     {
         $list ??= config('services.mailchimp.lists.subscribers');
 
-        return  $response = $this->client->lists->addListMember($list, [
+        return $this->client->lists->addListMember($list, [
             'email_address' => $email,
             'status' => 'subscribed',
         ]);
