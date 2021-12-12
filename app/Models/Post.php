@@ -31,13 +31,6 @@ class Post extends Model
                     $query->where('slug', $category));
         });
 
-        // $query->when($filters['category'] ?? false, function ($query, $category) {
-        //     $query
-        //         ->whereHas('category', function($query, $category){
-        //             return $query->where('slug', $category);
-        //          });
-        // });
-
         $query->when($filters['author'] ?? false, function ($query, $author) {
             $query
                 ->whereHas('author', fn ($query) =>
