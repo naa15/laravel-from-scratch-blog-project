@@ -7,7 +7,7 @@
             <x-panel>
                 <h1 class="text-center font-bold text-xl">Log In!</h1>
 
-                <form method="POST" action="/login" class="mt-10">
+                <form method="POST" action="{{ route('login')}}" class="mt-10">
                     @csrf
 
                     <x-form.input name="email" type="email" autocomplete="username" />

@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-span-8">
                     <div class="flex justify-between mb-6 -mt-10">
-                        <a href="/"
+                        <a href="{{ route('home') }}"
                             class="transition-colors duration-100 text-lg relative inline-flex items-center hover:text-blue-500">
                             <x-icon name="side-arrow" />
                             Back to Posts

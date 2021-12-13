@@ -2,7 +2,7 @@
 
 @section('content')
     <x-setting heading="Publish New Post">
-        <form method="POST" action="/admin/posts" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.posts') }}" enctype="multipart/form-data">
             @csrf
             <x-form.input name="title" />
             <x-form.input name="slug" />

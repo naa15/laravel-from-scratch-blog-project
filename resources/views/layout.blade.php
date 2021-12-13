@@ -7,20 +7,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="{{ mix('js/app.js') }}" defer></script>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-    </style>
-
+    <link href="{{ asset('app.css') }}" rel="stylesheet">
 </head>
 
 <body style="font-family: Open Sans, sans-serif">
     <section class="px-6 py-8">
         <nav class="flex justify-between items-center">
             <div>
-                <a href="/">
+                <a href="{{ route('home') }}">
                     <img src="{{ asset('images/logo.svg') }}" alt="Laracasts Logo" width="165" height="16">
                 </a>
             </div>
@@ -35,12 +29,14 @@
                         </x-slot>
 
                         @admin
-                        <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">
-                            All Posts
-                        </x-dropdown-item>
-                        <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">
-                            New Post
-                        </x-dropdown-item>
+                            <x-dropdown-item href="{{ route('admin.posts') }}" :active="request()->is('admin/posts')">
+                                All Posts
+                            </x-dropdown-item>
+
+                            <x-dropdown-item href="{{ route('admin.posts.create') }}"
+                                :active="request()->is('admin/posts/create')">
+                                New Post
+                            </x-dropdown-item>
                         @endadmin
 
                         <x-dropdown-item href="#" x-data="{}" x-cloak
@@ -48,13 +44,13 @@
                             Log Out
                         </x-dropdown-item>
 
-                        <form id="logout-form" class="hidden" method="POST" action="/logout">
+                        <form id="logout-form" class="hidden" method="POST" action="{{ route('logout') }}">
                             @csrf
                         </form>
                     </x-dropdown>
                 @else
-                    <a class="text-xs font-bold px-2 uppercase" href="/register">Register</a>
-                    <a class="text-xs font-bold px-2 uppercase" href="/login">Log In</a>
+                    <a class="text-xs font-bold px-2 uppercase" href="{{ route('register') }}">Register</a>
+                    <a class="text-xs font-bold px-2 uppercase" href="{{ route('login') }}">Log In</a>
                 @endauth
 
                 <a class="bg-blue-500 hover:bg-blue-700 rounded-full font-semibold text-white ml-3 uppercase px-5 py-3"
@@ -68,14 +64,15 @@
         <footer id="newsletter"
             class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
             <div class="relative mx-auto" style="width: 500px;">
-                <img src="{{ asset('images/lary-newsletter-icon.png') }}" width="145px" alt="Larry Laracore" class="mx-auto">
+                <img src="{{ asset('images/lary-newsletter-icon.png') }}" width="145px" alt="Larry Laracore"
+                    class="mx-auto">
                 <h5 class="text-3xl absolute bottom-0 mx-auto text-center">Stay in touch with the latest posts</h5>
             </div>
             <p class="text-sm mt-3">Promise to keep the inbox clean. No bugs.</p>
 
             <div class="mt-10">
                 <div class="bg-gray-200 inline-block mx-auto relative rounded-full">
-                    <form method="POST" action="/newsletter" class="flex items-center text-sm">
+                    <form method="POST" action="{{ route('newsletter') }}" class="flex items-center text-sm">
                         @csrf
 
                         <div class="px-5 py-3 inline-flex items-center">

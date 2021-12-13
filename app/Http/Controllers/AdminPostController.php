@@ -32,7 +32,7 @@ class AdminPostController extends Controller
    
         Post::create($attributes);
 
-        return redirect('/');
+        return redirect(route('home'));
     }
 
     public function edit(Post $post)

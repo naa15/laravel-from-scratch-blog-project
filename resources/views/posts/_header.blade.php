@@ -13,7 +13,7 @@
                 
         <!-- Search -->
         <span class="bg-gray-100 flex lg:inline-flex items-center px-3 py-2 relative rounded-xl">
-            <form method="GET" action="/">
+            <form method="GET" action="{{ route('home') }}">
                 @if (request('category'))
                     <input type="hidden" name="category" value="{{ request('category') }}">
                 @endif
