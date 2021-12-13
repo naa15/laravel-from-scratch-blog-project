@@ -3,6 +3,7 @@
 
 ### Contents:
 * [Introduction](#introduction)
+* [Database Structure](#database-structure)
 * [Prerequisites](#prerequisites)
 * [Technical Requirements](#technical-requirements)
 * [Getting Started](#getting-started)
@@ -12,6 +13,9 @@
 ### Introduction
 
 Laravel 8 From Scratch is a blog website where you can register, login, create, edit, delete or read other people's blogs.  
+
+### Database Structure
+![Screenshot from 2021-12-13 12-45-43](https://user-images.githubusercontent.com/48657466/145780736-07f2dd4e-4471-4b52-a887-92969be45f40.png)
 
 ### Prerequisites
  * PHP@8.0 and up
