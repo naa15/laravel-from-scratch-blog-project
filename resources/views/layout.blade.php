@@ -21,7 +21,7 @@
         <nav class="flex justify-between items-center">
             <div>
                 <a href="/">
-                    <img src="/images/logo.svg" alt="Laracasts Logo" width="165" height="16">
+                    <img src="{{ asset('images/logo.svg') }}" alt="Laracasts Logo" width="165" height="16">
                 </a>
             </div>
 
@@ -68,7 +68,7 @@
         <footer id="newsletter"
             class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
             <div class="relative mx-auto" style="width: 500px;">
-                <img src="/images/lary-newsletter-icon.png" width="145px" alt="Larry Laracore" class="mx-auto">
+                <img src="{{ asset('images/lary-newsletter-icon.png') }}" width="145px" alt="Larry Laracore" class="mx-auto">
                 <h5 class="text-3xl absolute bottom-0 mx-auto text-center">Stay in touch with the latest posts</h5>
             </div>
             <p class="text-sm mt-3">Promise to keep the inbox clean. No bugs.</p>
@@ -80,7 +80,7 @@
 
                         <div class="px-5 py-3 inline-flex items-center">
                             <label for="email">
-                                <img src="/images/mailbox-icon.svg" alt="Mailbox Icon">
+                                <img src="{{ asset('images/mailbox-icon.svg') }}" alt="Mailbox Icon">
                             </label>
                             <div>
                                 <input type="text" name="email" id="email" placeholder="Your email adress"

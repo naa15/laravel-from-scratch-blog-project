@@ -5,8 +5,7 @@
     <div class="py-6 px-5 lg:flex cursor-pointer">
         <div class="lg:flex-1 mr-8">
             <a href="/posts/{{ $post->slug }}">
-                {{-- TO DO --}}
-                <img src="{{ $post->thumbnail ? asset('storage/' . $post->thumbnail) : '/images/illustration-1.png' }}"
+                <img src="{{ $post->thumbnail ? asset('storage/' . $post->thumbnail) : asset('images/illustration-1.png') }}"
                     alt="Blog Post Illustration" class="rounded-xl">
             </a>
         </div>
@@ -39,7 +38,7 @@
 
             <footer class="flex justify-between items-center mt-8">
                 <div class="flex text-sm items-center">
-                    <img src="/images/lary-avatar.svg" alt="Larry avatar">
+                    <img src="{{ asset('images/lary-avatar.svg') }}" alt="Larry avatar">
                     <div class="ml-3">
                         <h5 class="font-bold">
                             <a href="/?author={{ $post->author->username }}">{{ $post->author->name }}</a>
