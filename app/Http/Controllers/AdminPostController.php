@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -17,7 +18,9 @@ class AdminPostController extends Controller
 
     public function create()
     {
-        return view('admin.posts.create');
+        return view('admin.posts.create', [
+            'categories' => Category::all()
+        ]);
     }
 
     public function store()
@@ -34,7 +37,10 @@ class AdminPostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', ['post' => $post]);
+        return view('admin.posts.edit', [
+            'post' => $post,
+            'categories' => Category::all()
+        ]);
     }
 
     public function update(Post $post)
