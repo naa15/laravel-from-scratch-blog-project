@@ -9,6 +9,7 @@
 * [Getting Started](#getting-started)
 * [Migration](#migration)
 * [Development](#development)
+* [Resources](#resources)
 
 ### Introduction
 
@@ -71,3 +72,7 @@ You can run Laravel's built-in development server by executing:
 
 ```sh
   php artisan serve
+```
+
+### Resources
+[Database Diagram](https://drawsql.app/redberry-10/diagrams/laravel-8-from-scratch)
