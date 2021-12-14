@@ -14,7 +14,13 @@ use App\Http\Controllers\NewsletterController;
 |
 */
 
+/*
+    ##Defining Route:##
+    Route::get('edit-industry/{id}', ['as' => 'admin.editIndustry', 'uses' => 'Industries@edit']);
 
+    ##Calling Route:##
+    {{ route('admin.editIndustry',[$id]) }}
+*/
 Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('show');

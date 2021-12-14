@@ -2,7 +2,7 @@
 
 @section('content')
     <x-setting :heading="'Edit Post: ' . $post->title">
-        <form method="POST" action="/admin/posts/{{ $post->id }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.posts.update', $post->id ) }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 

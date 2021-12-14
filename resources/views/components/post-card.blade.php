@@ -15,7 +15,7 @@
 
                 <div class="mt-4">
                     <h1 class="text-3xl">
-                        <a href="/posts/{{ $post->slug }}">
+                        <a href="{{ route('show', $post->slug ) }}">
                             {{ $post->title }}
                         </a>
                     </h1>
@@ -41,7 +41,7 @@
                 </div>
                 <div>
                     <a class="hover:bg-gray-400 bg-gray-300 border font-semibold px-5 py-2 rounded-full text-xs"
-                        href="/posts/{{ $post->slug }}">Read More</a>
+                        href="{{ route('show', $post->slug ) }}">Read More</a>
                 </div>
             </footer>
         </div>

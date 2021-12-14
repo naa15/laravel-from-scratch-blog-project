@@ -1,6 +1,6 @@
 @auth
     <x-panel>
-        <form method="POST" action="/posts/{{ $post->slug }}/comments">
+        <form method="POST" action="{{ route('comment', $post->slug ) }}">
             @csrf
             <header class="flex items-center">
                 <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" width="40" height="40"
