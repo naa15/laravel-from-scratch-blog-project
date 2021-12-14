@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Services\Newsletter;
-use Illuminate\Http\Request;
+use App\Http\Requests\NewsletterSubscriberStoreRequest;
 use Illuminate\Validation\ValidationException;
 
 class NewsletterController extends Controller
 {
-    public function __invoke(Newsletter $newsletter)
+    public function __invoke(NewsletterSubscriberStoreRequest $request, Newsletter $newsletter)
     {
-        request()->validate([
-            'email' => 'required|email'
-        ]);
+        $request->validated();
         
         try {
             $newsletter->subscribe(request('email'));

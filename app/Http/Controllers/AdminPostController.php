@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostStoreRequest;
 use App\Models\Category;
 use App\Models\Post;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class AdminPostController extends Controller
 {
@@ -23,9 +22,9 @@ class AdminPostController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(PostStoreRequest $request)
     {
-        $attributes = array_merge($this->validatePost(), [
+        $attributes = array_merge($request->validated(), [
             'user_id' => auth()->user()->id,
             'thumbnail' => request()->file('thumbnail')->store('thumbnails'),
         ]);
@@ -43,9 +42,9 @@ class AdminPostController extends Controller
         ]);
     }
 
-    public function update(Post $post)
+    public function update(PostStoreRequest $request, Post $post)
     {
-        $attributes = $this->validatePost($post);
+        $attributes = $request->validated();
 
         if (isset($attributes['thumbnail'])) {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
@@ -61,19 +60,5 @@ class AdminPostController extends Controller
         $post->delete();
 
         return back()->with('success', 'Post Deleted!');
-    }
-
-    protected function validatePost(?Post $post = null): array
-    {
-        $post ??= new Post();
-
-        return request()->validate([
-            'title' => 'required',
-            'thumbnail' => $post->exists ? ['image'] : ['required', 'image'],
-            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post)],
-            'excerpt' => 'required',
-            'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
-        ]);
     }
 }
