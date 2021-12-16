@@ -3,11 +3,10 @@
 
 <head>
     <title>Laravel From Scratch Blog</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="{{ mix('js/app.js') }}" defer></script>
     <link href="{{ asset('app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body style="font-family: Open Sans, sans-serif">
@@ -29,12 +28,12 @@
                         </x-slot>
 
                         @admin
-                            <x-dropdown-item href="{{ route('admin.posts') }}" :active="request()->is('admin/posts')">
+                            <x-dropdown-item href="{{ route('admin.posts') }}" :active="request()->routeIs('admin.posts')">
                                 All Posts
                             </x-dropdown-item>
 
                             <x-dropdown-item href="{{ route('admin.posts.create') }}"
-                                :active="request()->is('admin/posts/create')">
+                                :active="request()->routeIs('admin.posts.create')">
                                 New Post
                             </x-dropdown-item>
                         @endadmin
