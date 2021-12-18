@@ -28,7 +28,7 @@ class AdminPostController extends Controller
             'user_id' => auth()->user()->id,
             'thumbnail' => request()->file('thumbnail')->store('thumbnails'),
         ]);
-   
+
         Post::create($attributes);
 
         return redirect(route('home'));
