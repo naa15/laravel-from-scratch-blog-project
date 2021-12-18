@@ -8,19 +8,19 @@ use App\Http\Requests\UserStoreRequest;
 
 class RegisterController extends Controller
 {
-    public function create()
-    {
-        return view('register.create');
-    }
+	public function create()
+	{
+		return view('register.create');
+	}
 
-    public function store(UserStoreRequest $request)
-    {
-        $validated = $request->validated();
+	public function store(UserStoreRequest $request)
+	{
+		$validated = $request->validated();
 
-        $user = User::create($validated);
+		$user = User::create($validated);
 
-        Auth::login($user);
+		Auth::login($user);
 
-        return redirect(route('home'))->with('success', 'Your account has been created.');
-    }
+		return redirect(route('home'))->with('success', 'Your account has been created.');
+	}
 }

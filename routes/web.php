@@ -14,13 +14,6 @@ use App\Http\Controllers\NewsletterController;
 |
 */
 
-/*
-    ##Defining Route:##
-    Route::get('edit-industry/{id}', ['as' => 'admin.editIndustry', 'uses' => 'Industries@edit']);
-
-    ##Calling Route:##
-    {{ route('admin.editIndustry',[$id]) }}
-*/
 Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('show');
@@ -36,14 +29,13 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest')-
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 
-
 Route::middleware('can:admin')->group(function () {
-    // another way:
-    // Route::resource('admin/posts', AdminPostController::class)->except('show');
-    Route::post('admin/posts', [AdminPostController::class, 'store'])->name('admin.posts');
-    Route::get('admin/posts/create', [AdminPostController::class, 'create'])->name('admin.posts.create');
-    Route::get('admin/posts', [AdminPostController::class, 'index'])->name('admin.posts');
-    Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->name('admin.posts.edit');
-    Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->name('admin.posts.update');
-    Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->name('admin.posts.delete');
+	// another way:
+	// Route::resource('admin/posts', AdminPostController::class)->except('show');
+	Route::post('admin/posts', [AdminPostController::class, 'store'])->name('admin.posts');
+	Route::get('admin/posts/create', [AdminPostController::class, 'create'])->name('admin.posts.create');
+	Route::get('admin/posts', [AdminPostController::class, 'index'])->name('admin.posts');
+	Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->name('admin.posts.edit');
+	Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->name('admin.posts.update');
+	Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->name('admin.posts.delete');
 });

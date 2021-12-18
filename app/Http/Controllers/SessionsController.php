@@ -8,34 +8,36 @@ use Illuminate\Validation\ValidationException;
 
 class SessionsController extends Controller
 {
-    public function create()
-    {
-        return view('sessions.create');
-    }
+	public function create()
+	{
+		return view('sessions.create');
+	}
 
-    public function store(SessionStoreRequest $request)
-    {
-        $validated = $request->validated();
+	public function store(SessionStoreRequest $request)
+	{
+		$validated = $request->validated();
 
-        if (Auth::attempt($validated)) {
-            return redirect(route('home'))->with('success', "Welcome Back");
-        }
+		if (Auth::attempt($validated))
+		{
+			return redirect(route('home'))->with('success', 'Welcome Back');
+		}
 
-        throw ValidationException::withMessages([
-            'email' => 'Your provided credentials could not be varified.'
-        ]);
+		throw ValidationException::withMessages([
+			'email' => 'Your provided credentials could not be varified.',
+		]);
 
-        /*
-        * other way to do the same:
-        * return back()
-        *    ->withInput()
-        *    ->withErrors(['email' => 'Your provided credentials could not be varified.']);
-        */
-    }
-    public function destroy()
-    {
-        Auth::logout();
+		/*
+		* other way to do the same:
+		* return back()
+		*    ->withInput()
+		*    ->withErrors(['email' => 'Your provided credentials could not be varified.']);
+		*/
+	}
 
-        return redirect(route('home'))->with('success', 'Goodbye');
-    }
+	public function destroy()
+	{
+		Auth::logout();
+
+		return redirect(route('home'))->with('success', 'Goodbye');
+	}
 }

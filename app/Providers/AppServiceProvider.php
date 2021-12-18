@@ -13,40 +13,40 @@ use MailchimpMarketing\ApiClient;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        app()->bind(Newsletter::class, function () {
-            $client = new ApiClient();
+	/**
+	 * Register any application services.
+	 *
+	 * @return void
+	 */
+	public function register()
+	{
+		app()->bind(Newsletter::class, function () {
+			$client = new ApiClient();
 
-            $client->setConfig([
-                'apiKey' => config('services.mailchimp.key'),
-                'server' => 'us5'
-            ]);
+			$client->setConfig([
+				'apiKey' => config('services.mailchimp.key'),
+				'server' => 'us5',
+			]);
 
-            return new MailchimpNewsletter($client);
-        });
-    }
+			return new MailchimpNewsletter($client);
+		});
+	}
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        Model::unguard();
+	/**
+	 * Bootstrap any application services.
+	 *
+	 * @return void
+	 */
+	public function boot()
+	{
+		Model::unguard();
 
-        Gate::define('admin', function (User $user) {
-            return $user->username == 'gelagela';
-        });
+		Gate::define('admin', function (User $user) {
+			return $user->username == 'gelagela';
+		});
 
-        Blade::if('admin', function () {
-            return request()->user()?->can('admin');
-        });
-    }
+		Blade::if('admin', function () {
+			return request()->user()?->can('admin');
+		});
+	}
 }
