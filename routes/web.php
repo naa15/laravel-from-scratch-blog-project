@@ -15,6 +15,7 @@ use App\Http\Controllers\NewsletterController;
 */
 
 Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/?category={category:slug}', [PostController::class, 'index'])->name('category');
 
 Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('show');
 Route::post('posts/{post:slug}/comments', [CommentController::class, 'store'])->name('comment');
