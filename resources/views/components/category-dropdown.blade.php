@@ -13,7 +13,7 @@
 
     @foreach ($categories as $category)
         <x-dropdown-item
-            href="{{ route('category', $category->slug) }}&{{ http_build_query(request()->except('category', 'page')) }}"
+            href="{{ route('home', ['category' => $category->slug, http_build_query(request()->except('category', 'page'))]) }}"
             :active='request()->fullUrlIs("*?category={$category->slug}*")'>
             {{ ucwords($category->name) }}
         </x-dropdown-item>
