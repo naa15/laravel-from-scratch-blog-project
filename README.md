@@ -30,7 +30,7 @@ Laravel 8 From Scratch is a blog website where you can register, login, create, 
 ### Getting Started
 1\. First of all you need to clone Laravel From Scratch repository from github:
 ```sh
-git clone https://github.com/RedberryInternship/nanuka-laravel-8-from-scratch.git
+git clone https://github.com/naa15/laravel-from-scratch-blog-project.git
 ```
 
 2\. Next step requires you to run *composer install* in order to install all the dependencies.
